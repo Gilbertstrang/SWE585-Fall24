@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class MoveableExample : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Rigidbody rb;
+
+    public Vector3 force = new Vector3(0, 0, 5f);
     void Start()
     {
-        Debug.Log("Movable object script started!");
+        if (rb == null) {
+            Debug.LogWarning("No rigidbody.");
+        }
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
-        
+        if (rb != null) {
+            rb.AddForce(force);
+        }
     }
 }
